@@ -16,7 +16,7 @@
    sebastianarcila@gmail.com sergiobuj@gmail.com
    2009-1
 */
-#include "aux.h"
+#include "electron.h"
 
 #include <stdio.h>
 #include <string.h>

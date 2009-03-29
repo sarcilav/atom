@@ -43,6 +43,6 @@ struct point
 	
 };
 
-void draw_electron(point & i, const gfloat & dt, const gfloat & dp);
+void draw_electron(point & i, const gfloat & dt, const gfloat & dp, const gfloat & R = 0.025);
 #endif /* _ELECTRON_H */
 

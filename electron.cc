@@ -5,7 +5,7 @@
    2009-1
 */
 
-void draw_electron(point & i,const gfloat &dt, const gfloat &dp)
+void draw_electron(point & i,const gfloat &dt, const gfloat &dp, const gfloat & R)
 {
 	
   gfloat &x0 = i.x, &y0 = i.y, &z0 = i.z, &teta = i.t, &r = i.r, &phi = i.p;
@@ -25,7 +25,7 @@ void draw_electron(point & i,const gfloat &dt, const gfloat &dp)
     else
       glColor3f(0, 0, 0.8);
     glTranslatef(x0,y0,z0);    
-    gluSphere(quadric, 0.025, 100, 100);
+    gluSphere(quadric, R, 100, 100);
 		
 		
   }

@@ -16,40 +16,15 @@
    sebastianarcila@gmail.com sergiobuj@gmail.com
    2009-1
 */
-#include "electron.h"
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <limits.h>
-#include <assert.h>
-#include <stdarg.h>
 #include <string>
-#include <sstream>
-#include <iostream>
-#include <fstream>
-#include <iterator>
-#include <algorithm>
-#include <vector>
-#include <deque>
-#include <list>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <bitset>
-
+#include "bohr.h"
+#include "rutherford.h"
+#include "reader.h"
 using namespace std;
 
-/* DEBUG */
-#define D(x) cerr<<__LINE__<<" "#x" "<<x<<endl
-#define D_v(x) for(int i=0;i<x.size();cerr<<x[i++]<<" ")
-
-#define ALL(x) x.begin(),x.end()
-
-vector<point> electron;
-
+string model;
+bohr Bohr;
+rutherford Rutherford ;
 void init()
 {
   glClearColor(0, 0, 0, 0.0);
@@ -63,20 +38,12 @@ void init()
   gfloat p[] = { 1.0, 0.0, 0.0, 0.0 };
   gfloat lma[] = { 0.4, 0.4, 0.4, 1.0 };
   gfloat lv[] = { 0.0 };
-  glLightfv(GL_LIGHT0, GL_AMBIENT, a);
-  glLightfv(GL_LIGHT0, GL_DIFFUSE, d);
-  glLightfv(GL_LIGHT0, GL_POSITION, p);
-  glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lma);
-  glLightModelfv(GL_LIGHT_MODEL_LOCAL_VIEWER, lv);
-  glEnable(GL_LIGHTING);
-  glEnable(GL_LIGHT0);
-  
-  /*machete proton*/  electron.push_back(point(0,0,0,0, 0,0));
-  electron.push_back(point(0,0,0,0.2, 0,360));
-  electron.push_back(point(0,0,0,0.4, 90,270));
-  electron.push_back(point(0,0,0,0.6, 180,180));
-  electron.push_back(point(0,0,0,0.6, 270,90));
-  electron.push_back(point(0,0,0,0.8, 360,0));
+  reader Reader;
+  model = Reader.tipo();
+  if( model == "bohr")
+    Bohr = bohr(Reader.num());
+  else if (model == "rutherford")
+    Rutherford = rutherford(Reader.num());
   
 }
 
@@ -86,8 +53,10 @@ void display()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
   gluLookAt(0,0.1,0.1,0,0,0,0,0.1,0);
-  for(int i = 0; i<electron.size(); ++i)
-    draw_electron(electron[i]);
+  if( model == "bohr")
+    Bohr.draw();
+  else if (model == "rutherford")
+    Rutherford.draw();
   glutSwapBuffers();	
 }
 

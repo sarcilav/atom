@@ -5,13 +5,14 @@
    2009-1
 */
 
-void draw_electron(point & i)
+void draw_electron(point & i,const gfloat &dt, const gfloat &dp)
 {
 	
   gfloat &x0 = i.x, &y0 = i.y, &z0 = i.z, &teta = i.t, &r = i.r, &phi = i.p;
   x0 = r*cos(teta);
   y0 = r*sin(teta);
-  z0 = r*cos(phi);
+  if(dp>0)
+    z0 = r*cos(phi);
 
   GLUquadric *quadric = gluNewQuadric();	
 	
@@ -30,8 +31,8 @@ void draw_electron(point & i)
   }
   glPopMatrix();
   
-  teta += 0.1;
-  phi += 0.1;
+  teta += dt;
+  phi += dp;
 
   gluDeleteQuadric(quadric);
 }

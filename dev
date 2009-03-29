@@ -1,3 +1,5 @@
 #!/bin/bash
-g++ atom.cc electron.cc -framework GLUT -framework OpenGL -L"/System/Library/Frameworks/OpenGL.framework/Libraries" -o atom || g++ -o atom atom.cc electron.cc -lglut
-./atom &
+rm atom
+g++ reader.cc atom.cc rutherford.cc bohr.cc electron.cc -framework GLUT -framework OpenGL -L"/System/Library/Frameworks/OpenGL.framework/Libraries" -o atom || g++ -o atom atom.cc bohr.cc rutherford.cc electron.cc reader.cc -lglut
+./atom 
+    

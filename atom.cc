@@ -4,9 +4,10 @@
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/gl.h>
 #else
-#include <gl\gl.h>
-#include <gl\glu.h>
-#include <gl\glut.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#include <unistd.h>
 #endif
 
 /* 

@@ -20,11 +20,13 @@
 #include "bohr.h"
 #include "rutherford.h"
 #include "reader.h"
+#include "thompson.h"
 using namespace std;
 
 string model;
 bohr Bohr;
 rutherford Rutherford ;
+thompson Thompson;
 void init()
 {
   glClearColor(0, 0, 0, 0.0);
@@ -44,7 +46,8 @@ void init()
     Bohr = bohr(Reader.num());
   else if (model == "rutherford")
     Rutherford = rutherford(Reader.num());
-  
+  else if ( model == "thompson")
+    Thompson = thompson(Reader.num());
 }
 
 
@@ -53,10 +56,13 @@ void display()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
   gluLookAt(0,0.1,0.1,0,0,0,0,0.1,0);
+  //    gluLookAt(0,0,1,0,0,0,0,0.1,0);
   if( model == "bohr")
     Bohr.draw();
   else if (model == "rutherford")
     Rutherford.draw();
+  else if( model == "thompson")
+    Thompson.draw();
   glutSwapBuffers();	
 }
 

@@ -1,0 +1,3 @@
+* TODO Activar texturas
+* TODO Activar luz
+* TODO Definir Interacciones

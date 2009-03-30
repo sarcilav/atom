@@ -19,14 +19,17 @@
 #include <string>
 #include "models/bohr.h"
 #include "models/rutherford.h"
-#include "lib/reader.h"
 #include "models/thompson.h"
+#include "models/schrodinger.h"
+#include "lib/reader.h"
+
 using namespace std;
 
 string model;
 bohr Bohr;
 rutherford Rutherford ;
 thompson Thompson;
+schrodinger Schrodinger;
 void init()
 {
   glClearColor(0, 0, 0, 0.0);
@@ -48,7 +51,8 @@ void init()
     Rutherford = rutherford(Reader.num());
   else if ( model == "thompson")
     Thompson = thompson(Reader.num());
-
+  else if ( model == "schrodinger")
+    Schrodinger = schrodinger(Reader.num());
 }
 
 
@@ -64,6 +68,8 @@ void display()
     Rutherford.draw();
   else if( model == "thompson")
     Thompson.draw();
+  else if ( model == "schrodinger")
+    Schrodinger.draw();
   glutSwapBuffers();	
 }
 

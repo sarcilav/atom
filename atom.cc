@@ -48,7 +48,7 @@ void init()
     Rutherford = rutherford(Reader.num());
   else if ( model == "thompson")
     Thompson = thompson(Reader.num());
-  printf("este es%s\n",model.c_str());
+
 }
 
 

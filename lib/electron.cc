@@ -1,12 +1,5 @@
 #include "electron.h"
-#include <iostream>
-using namespace std;
-#define D(XX) cerr<<#XX<<" "<<XX<<endl
-/* 
-   Sebastian Arcila Valenzuela & Sergio Botero Uribe
-   sebastianarcila@gmail.com sergiobuj@gmail.com
-   2009-1
-*/
+
 
 void draw_electron(point & i, gfloat &dt,  gfloat &dp, const gfloat & R)
 {
@@ -15,7 +8,6 @@ void draw_electron(point & i, gfloat &dt,  gfloat &dp, const gfloat & R)
   
   x0 = r*cos(teta);
   y0 = r*sin(teta);
-  D((int)phi%360);
   GLUquadric *quadric = gluNewQuadric();	
   
   glPushMatrix();

@@ -24,7 +24,6 @@ struct thompson
   thompson(){}
   thompson(int N)
   {
-    srand(time(NULL));
     dt = 0.1;
     dp = 0.1;
     n = N;

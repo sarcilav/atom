@@ -37,12 +37,34 @@ void init()
   glShadeModel(GL_SMOOTH);
 	
   /* model for light */
+  
+  GLfloat light_position[] = { 0, 0, 0, 1.0 }; 
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position); /* set the position of GL_LIGHT0 */
+  GLfloat spot_direction[] = { 0, 1, 1 , 1 }; /* direction is specified in homogenous coordinates */
+  glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_direction); /* set the direction of GL_LIGHT0 */
+  glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 360); /* set the cutoff angle */
+  
+  
 
-  gfloat a[] = { 1.0, 0.0, 0.0, 0.0 };
-  gfloat d[] = { 1.0, 0.0, 0.0, 0.0 };
-  gfloat p[] = { 1.0, 0.0, 0.0, 0.0 };
-  gfloat lma[] = { 0.4, 0.4, 0.4, 1.0 };
-  gfloat lv[] = { 0.0 };
+  gfloat amb[] = { 0.5f, 0.5f, 0.5f, 1.0f };	// Ambient Light Values
+  gfloat dif[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+  glLightfv(GL_LIGHT0, GL_AMBIENT, amb );
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, dif );
+
+  //glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 2.0);
+  //glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 1.0);
+  //glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.5);
+  //glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 2.0);
+  	
+
+
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+  glEnable(GL_COLOR_MATERIAL);
+  /* end light */
+  
+  /* Load the atomic model */
   reader Reader;
   model = Reader.tipo();
   if( model == "bohr")
@@ -53,6 +75,7 @@ void init()
     Thompson = thompson(Reader.num());
   else if ( model == "schrodinger")
     Schrodinger = schrodinger(Reader.num());
+  /* end load atomic*/
 }
 
 
@@ -61,7 +84,6 @@ void display()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
   gluLookAt(0,0.1,0.1,0,0,0,0,0.1,0);
-  //    gluLookAt(0,0,1,0,0,0,0,0.1,0);
   if( model == "bohr")
     Bohr.draw();
   else if (model == "rutherford")
@@ -85,6 +107,7 @@ void keyboard(unsigned char key, int a , int b)
 }
 int main(int argc, char** argv)
 {
+  srand(time(NULL));
   glutInit(&argc, argv);
   glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
   glutInitWindowSize (600, 600);

@@ -17,10 +17,10 @@
    2009-1
 */
 #include <string>
-#include "bohr.h"
-#include "rutherford.h"
-#include "reader.h"
-#include "thompson.h"
+#include "models/bohr.h"
+#include "models/rutherford.h"
+#include "lib/reader.h"
+#include "models/thompson.h"
 using namespace std;
 
 string model;
@@ -48,6 +48,7 @@ void init()
     Rutherford = rutherford(Reader.num());
   else if ( model == "thompson")
     Thompson = thompson(Reader.num());
+  printf("este es%s\n",model.c_str());
 }
 
 

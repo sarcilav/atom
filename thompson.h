@@ -24,11 +24,16 @@ struct thompson
   thompson(){}
   thompson(int N)
   {
-    dt = 0;
-    dp = 0;
+    srand(time(NULL));
+    dt = 0.1;
+    dp = 0.1;
     n = N;
     proton = point(0 ,0 ,0 , 0, 0 ,0);
-    
+    gfloat r = 0.2;
+    gfloat degree = 0, dd = PI/4;
+    gfloat zdegree = rand();
+    for(int i = 0; i<n; ++i,degree+=dd)
+      system.push_back(point(0,0,0, r, degree, rand()));    
     
   }
   void  draw();

@@ -9,6 +9,7 @@ Usa el config para modificar el modelo que quieres ver
 La primera palabra es el modelo, puedes escojer entere
 bohr
 rutherford
+thompson
 ...
 La segunda linea contiene el numero de electrones con el que deseas activar el modelo
 

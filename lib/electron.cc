@@ -8,6 +8,7 @@ void draw_electron(point & i,  gfloat &dt,  gfloat &dp, const gfloat & R)
   
   x0 = r*cos(teta);
   y0 = r*sin(teta);
+  z0 = r*cos(phi);
   GLUquadric *quadric = gluNewQuadric();	
   
   glPushMatrix();

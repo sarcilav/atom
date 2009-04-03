@@ -27,7 +27,7 @@ struct bohr
     
     
   }
-  void  draw();
+  void  draw(unsigned int );
 };
 
 

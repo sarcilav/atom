@@ -1,6 +1,5 @@
-
 #include "schrodinger.h"
-void draw_elec(point & i, const gfloat &dt,const gfloat & dp, const gfloat & R)
+void draw_elec(point & i, const gfloat &dt,const gfloat & dp,unsigned int tex, const gfloat & R)
 {
   gfloat &x0 = i.x, &y0 = i.y, &z0 = i.z, &teta = i.t, &r = i.r, &phi = i.p;
   
@@ -29,12 +28,11 @@ void draw_elec(point & i, const gfloat &dt,const gfloat & dp, const gfloat & R)
 
 
 
-void schrodinger::draw()
+void schrodinger::draw(unsigned int tex)
 {
-  
-  draw_electron(proton, dt, dp);
+  draw_electron(proton, dt, dp,tex);
   for(int i = 0; i<system.size(); ++i)
-    draw_elec(system[i],dt, dp, 0.02);
+    draw_elec(system[i],dt, dp,tex, 0.02);
 }
 
 

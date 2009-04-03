@@ -30,7 +30,7 @@ struct schrodinger
     
     
   }
-  void  draw();
+  void  draw(unsigned int );
 };
 
 

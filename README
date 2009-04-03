@@ -1,0 +1,26 @@
+
+## Copyright 2009 Sebastian Arcila-Valenzuela Sergio Botero-Uribe
+##
+## Author: sebastianarcila@gmail.com sergiobuj@gmail.com
+## Keywords: Modelos atomicos, OpenGL
+
+La idea es mostrar como interactuan los electrones en sus orbitas cuando giran sobre los electrones, por ejemplo en el modelo de rutherford cuando los electrones cambian la inclinación en su giro orbital , por momentos desaparecen porque cambian de numero cuantico.
+
+Usa el config para modificar el modelo que quieres ver
+*La primera palabra es el modelo, puedes escojer entere
+bohr
+rutherford
+thompson
+schrodinger
+*La segunda linea contiene el numero de electrones con el que deseas activar el modelo
+
+atom.cc Es el corazon de la aplicacion, en este se centra todo el proceso
+
+models/ se encuentran los *.h y los *.cc de cada uno de los modelos
+
+libs/ son algunas librerias, para pintar particulas subatomicas(electron*), el reader para alimentar el fluido de datos(reader.*) y un cargador de textura (textureloader.*)
+
+Para Compilar en cualquier distribucion *nix, que cumpla con el standar POSIX, solo basta con darle permisos de ejecución a dev( chmod u+x dev), y ejecutar en el home del proyecto ./dev , esto compilara y correra el programa.
+
+En cualquier otro sistema operativo, sin la suficiente capacidad intelectual para implementar POSIX, puede mirar en google.com
+

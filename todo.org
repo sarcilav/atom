@@ -1,3 +1,6 @@
-* TODO Activar texturas
-* TODO Activar luz
-* TODO Definir Interacciones
+* DONE Activar texturas
+* DONE Activar luz
+* DONE Definir Interacciones
+** DONE Preguntarle a sebas
+** DONE Preguntarle a sergio
+** DONE Implementar

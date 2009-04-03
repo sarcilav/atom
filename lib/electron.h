@@ -16,8 +16,11 @@
 
 #include<stdio.h>
 #include <math.h>
+
 typedef GLfloat gfloat;
 const gfloat PI = 2*acos(0);
+
+
 /* 
    Sebastian Arcila Valenzuela & Sergio Botero Uribe
    sebastianarcila@gmail.com sergiobuj@gmail.com
@@ -46,6 +49,6 @@ struct point
 	
 };
 
-void draw_electron(point & i,  gfloat & dt, gfloat & dp, const gfloat & R = 0.025);
+void draw_electron(point & i,  gfloat & dt, gfloat & dp,unsigned int tex, const gfloat & R = 0.025);
 #endif /* _ELECTRON_H */
 

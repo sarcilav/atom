@@ -1,5 +1,5 @@
 #!/bin/bash
 rm atom
-g++ models/thompson.cc models/schrodinger.cc lib/reader.cc atom.cc models/rutherford.cc models/bohr.cc lib/electron.cc -framework GLUT -framework OpenGL -L"/System/Library/Frameworks/OpenGL.framework/Libraries" -o atom || g++ -o atom atom.cc models/bohr.cc models/rutherford.cc lib/electron.cc lib/reader.cc models/thompson.cc models/schrodinger.cc -lglut
+g++ -o atom atom.cc models/bohr.cc models/rutherford.cc lib/electron.cc lib/reader.cc models/thompson.cc models/schrodinger.cc lib/textureloader.cc -lglut
 ./atom 
     

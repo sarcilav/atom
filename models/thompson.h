@@ -7,6 +7,7 @@
 
 #include <vector>
 #include "../lib/electron.h"
+
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
@@ -30,12 +31,11 @@ struct thompson
     proton = point(0 ,0 ,0 , 0, 0 ,0);
     gfloat r = 0.2;
     gfloat degree = 0, dd = PI/4;
-    gfloat zdegree = rand();
     for(int i = 0; i<n; ++i,degree+=dd)
       system.push_back(point(0,0,0, r, degree, rand()));    
     
   }
-  void  draw();
+  void  draw(unsigned int );
 };
 
 
